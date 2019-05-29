@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="toolText.css">
+    <title>toolText</title>
+    <style>
+        .redBg {
+            background: red;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id='btnAlert'>alert弹出</button>
+    <button id='btnCnfirm'>confirm弹出</button>
+    <button id='btnToast'>toast弹出</button>
+</body>
+<script src="toolText.js"></script>
+<script>
+    window.onload = function() {
+        function func() {
+            alert('您点击了确定')
+        }
+
+        function funb() {
+            alert('您点击了取消')
+        }
+        document.querySelector('#btnAlert').onclick = function(e) {
+            //普通alert
+            // alert('alert弹窗')
+
+            //带标题的alert
+            // alert('alert弹窗','alertTit')
+
+            //带确认回调和标题的alert
+            // alert('alert弹窗', 'alertTit', function() {
+            //         alert('您点击了确定')
+            //     })
+
+            //回调函数可在外部定义
+            // alert('alert弹窗', 'alertTit', func)
+
+            //不带标题有确定回调的alert
+            alert('alert弹窗', null, func)
+        }
+        document.querySelector('#btnCnfirm').onclick = function(e) {
+            //普通confirm
+            // confirm('confirm确定窗口')
+
+            //带有标题的confirm
+            // confirm('confirm确定窗口','confirmTit')
+
+            //带有确认回调和标题的confirm
+            // confirm('confirm确定窗口','confirmTit',function(){
+            //     alert('您点击了确定')
+            // })
+
+            //带有确认回调、取消回调和标题的confirm
+            // confirm('confirm确定窗口', 'confirmTit', func, function() {
+            //         alert('您点击了取消')
+            //     })
+
+            //回调函数可在外部定义
+            // confirm('confirm确定窗口', 'confirmTit', func,funb)
+
+            //不带标题有确定回调的confirm
+            // confirm('confirm确定窗口', null, func)
+
+            //不带标题有取消回调的confirm
+            confirm('confirm确定窗口', null, null, funb)
+        }
+        document.querySelector('#btnToast').onclick = function(e) {
+            //普通toast，默认3s关闭
+            // toast('toast弹出框口')
+
+            //可设置关闭时间的toast
+            // toast('toast弹出框口',6000)
+
+            //可自定义css样式和带有关闭时间的toast
+            // toast('toast弹出框口',6000,'redBg')
+
+            //仅设置css样式的toast
+            toast('toast弹出框口', null, 'redBg')
+        }
+    }
+</script>
+
+</html>

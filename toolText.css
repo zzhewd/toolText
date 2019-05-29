@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+ol,
+dl {
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.alert_shade,
+.affirm_shade {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    background: rgba(0, 0, 0, .6);
+}
+
+.alert_shade .model_alert,
+.affirm_shade .affirm_frame {
+    width: 400px;
+    min-height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+    z-index: 200000;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.alert_shade .model_alert .model_alerttit,
+.affirm_shade .affirm_frame .affirm_tit {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #303133;
+    font-size: 18px;
+}
+
+.alert_shade .model_alert .model_alertinfo,
+.affirm_shade .affirm_frame .affirm_info {
+    width: calc(100% - 20px);
+    text-align: center;
+    padding: 20px 10px;
+    word-wrap: break-word;
+    border-bottom: 1px solid #dcdfe6;
+    color: #606266;
+    font-size: 14px;
+}
+
+.alert_shade .model_alert .alertBtn_ok {
+    outline: none;
+    height: 40px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #409eff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0 0 10px 10px;
+}
+
+.affirm_shade .affirm_frame .affirm_btn_cancel,
+.affirm_shade .affirm_frame .affirm_btn_ok {
+    width: 50%;
+    height: 40px;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #409eff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0 0 10px 0;
+}
+
+.affirm_shade .affirm_frame .affirm_btn_cancel {
+    border-right: 1px solid #dcdfe6;
+    border-radius: 0 0 0 10px;
+}
+
+.alert_shade .model_in,
+.affirm_shade .model_in {
+    opacity: 1;
+    transition-duration: .4s;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+@keyframes toastappear {
+    from {
+        transition-duration: .4s;
+        transform: translate3d(0, 0, 0) scale(1.2);
+    }
+    to {
+        transition-duration: .4s;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+.toast_frame {
+    max-width: 200px;
+    background: rgba(0, 0, 0, .8);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    margin-left: -100px;
+    margin-top: -20px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 15px 10px;
+    opacity: 0;
+}
+
+.toast_opacity {
+    opacity: 1;
+    animation: toastappear .4s;
+}
